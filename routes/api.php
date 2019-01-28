@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,10 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/registrati', 'UtenteController@store');
+Route::post('/login', 'ListaController@index');
+Route::post('/aggiungielementi', 'ListaController@create');
+Route::post('/eliminaelementi', 'ListaController@destroy');
+Route::post('/aggiungiassociato', 'UtenteController@aggiungiAssociato');
+Route::post('/rimuoviassociato', 'UtenteController@rimuoviAssociato');
